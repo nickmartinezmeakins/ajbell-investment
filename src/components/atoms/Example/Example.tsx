@@ -1,5 +1,11 @@
-export const Example = () => (
+import { ReactNode } from 'react';
+
+type ExampleProps = {
+  children?: ReactNode;
+};
+
+export const Example = ({ children }: ExampleProps) => (
   <div>
-    <h1 className='text-[#d43939]'>AJ BELL Test</h1>
+    <h1 className='text-[#f33]'>{children}</h1>
   </div>
 );
