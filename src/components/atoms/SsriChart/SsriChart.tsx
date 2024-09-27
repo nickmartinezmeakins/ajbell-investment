@@ -11,7 +11,7 @@ const SsriChart: React.FC<SsriChartProps> = ({ SRRI }) => {
         {Array.from({ length: maxSRRI }, (_, index) => (
           <div
             key={index}
-            className={`w-8 h-10 rounded-md transition-colors duration-300 ${
+            className={`w-full max-w-8 h-10 rounded-md transition-colors duration-300 ${
               index == SRRI - 1 ? 'bg-red' : 'bg-gray-300'
             }`}
           />
