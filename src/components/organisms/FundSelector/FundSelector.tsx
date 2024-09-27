@@ -109,7 +109,7 @@ const FundSelector: React.FC<FundSelectorProps> = ({ strategies }) => {
               <div className="grid md:grid-cols-12 gap-5 p-4 m-2 shadow-[0 2px 4px rgba(0, 0, 0, 0.1)] rounded-lg px-5 py-2.5 bg-white">
                 <div className="col-span-12  p-4">
                     <div className="flex flex-row items-center">
-                      <h3 className="text-xl">AJ Bell <span className="text-red underline">{selectedFund.name}</span> fund</h3>
+                      <h3 className="text-xl">AJ Bell <span className="text-red">{selectedFund.name}</span> fund</h3>
                       <button onClick={() => setSelectedFundID(selectedFund.id)} className="btn btn-primary mt-1 ml-auto">Select Fund</button>
                     </div>
                     <hr className='w-full my-4' />
