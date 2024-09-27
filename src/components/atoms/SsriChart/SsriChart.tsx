@@ -12,7 +12,7 @@ const SsriChart: React.FC<SsriChartProps> = ({ SRRI }) => {
           <div
             key={index}
             className={`w-8 h-10 rounded-md transition-colors duration-300 ${
-              index == SRRI ? 'bg-red' : 'bg-gray-300'
+              index == SRRI - 1 ? 'bg-red' : 'bg-gray-300'
             }`}
           />
           
