@@ -8,7 +8,6 @@ const meta: Meta<typeof StarRating> = {
   tags: ['autodocs'],
   args: {
     analystRating: 4,
-    analystRatingLabel: 'Neutral',
   },
 };
 

@@ -11,7 +11,6 @@ const mockGrowthFunds: Fund[] = [
       ratings: {
         analystRating: 4,
         SRRI: 5,
-        analystRatingLabel: 'Neutral',
       },
       portfolio: {
         asset: [
@@ -51,7 +50,6 @@ const mockResponsibleFunds: Fund[] = [
       ratings: {
         analystRating: 5,
         SRRI: 3,
-        analystRatingLabel: 'Positive',
       },
       portfolio: {
         asset: [
@@ -63,6 +61,13 @@ const mockResponsibleFunds: Fund[] = [
       profile: {
         objective: 'Responsible Fund 1 aims to invest in socially responsible assets.',
       },
+      documents: [
+        {
+          id: 511596587,
+          type: "Factsheet",
+          url: "https://doc.morningstar.com/Document/93e682d5c64ed0c3525d037d1b7c7e90.msdoc?key=e33ffc7c69edde8ebee9cc33e90c47cccaca9c6eb3a0f372"
+        },
+      ],
       quote: {
         name: 'VT AJ Bell Responsible Fund 1',
         marketCode: 'FUND:RESP1',

@@ -45,7 +45,7 @@ const FundSelector: React.FC<FundSelectorProps> = ({ strategies }) => {
   return (
     <section>
       <div className='flex flex-col md:flex-row items-center md:min-h-20'>
-        <h1 className="text-xl">1. Tell us why you’re investing</h1>
+        <h1 className="text-xl">1. Tell us why you&apos;re investing</h1>
         <div className="mt-4 md:mt-0 flex justify-center bg-white shadow-[0 2px 4px rgba(0, 0, 0, 0.1)] rounded-lg px-5 py-2.5 relative md:ml-auto">
           {Object.keys(strategies).map((strategy) => (
             <button
@@ -92,7 +92,7 @@ const FundSelector: React.FC<FundSelectorProps> = ({ strategies }) => {
                 <hr className='w-full my-4' />
 
                 <h3 className="text-xl font-light text-red">Is this fund right for me?</h3>
-                <p className="mt-4">he Cautious fund is right for you if you want to give your money a chance to grow faster than it would in a savings account – but you don't want too much risk.</p>
+                <p className="mt-4">he Cautious fund is right for you if you want to give your money a chance to grow faster than it would in a savings account – but you don&apos;t want too much risk.</p>
 
                 <p>To achieve consistent growth over the long term, the Cautious fund invests mostly in typically steadier assets such as bonds. It invests only sparingly in aggressive assets such as shares.</p>
 
@@ -110,10 +110,13 @@ const FundSelector: React.FC<FundSelectorProps> = ({ strategies }) => {
 
                 <hr className='w-full mt-4 mb-6' />
 
+                {selectedFund.data.quote?.ongoingCharge && (
+
                 <p>
                   <strong>Ongoing Charge:</strong><br />
-                 {selectedFund.data.quote.ongoingCharge}
+                 {selectedFund.data.quote?.ongoingCharge}
                 </p>
+              )}
 
                 <hr  className='w-full mt-4 mb-6'/>
 
@@ -123,7 +126,7 @@ const FundSelector: React.FC<FundSelectorProps> = ({ strategies }) => {
 
                 <div className="flex flex-col gap-2">
 
-                {selectedFund.data.documents.map((doc) => (
+                {selectedFund.data.documents?.map((doc) => (
                   <a href={doc.url} target="_blank" key={doc.id} className="btn-secondary">{doc.type}</a>
                 ))}
                 </div>
@@ -135,7 +138,7 @@ const FundSelector: React.FC<FundSelectorProps> = ({ strategies }) => {
             <div className="grid md:grid-cols-12 gap-5 p-4 mt-10 shadow-[0 2px 4px rgba(0, 0, 0, 0.1)] rounded-lg px-5 py-2.5 bg-white">
               <div className="col-span-12 lg:col-span-6 p-4">
               <h4 className="text-lg font-semibold">Fund asset allocation</h4>
-              <p>This is how the fund is divided between its different investment types</p>
+              <p>This is xshow the fund is divided between its different investment types</p>
                 <PieChart data={selectedFund.data.portfolio.asset} />
               </div>
 

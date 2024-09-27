@@ -1,3 +1,9 @@
+type Document = {
+  id: number;
+  type: string;
+  url: string;
+};
+
 export interface Fund {
   id: string;
   name: string;
@@ -15,7 +21,7 @@ export interface Fund {
     profile: {
       objective: string;
     };
-    quote: {
+    quote?: {
       name: string;
       marketCode: string;
       lastPrice: number;
@@ -24,10 +30,6 @@ export interface Fund {
       sectorName: string;
       currency: string;
     };
-    documents:  {
-      id: number,
-      type: string,
-      url: string,
-    }[],
+    documents?: Document[];
   };
 }

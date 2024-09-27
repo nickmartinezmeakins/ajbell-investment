@@ -86,7 +86,6 @@ const mockResponsibleFunds: Fund[] = [
       ratings: {
         analystRating: 5,
         SRRI: 3,
-        analystRatingLabel: 'Positive',
       },
       portfolio: {
         asset: [
@@ -96,25 +95,25 @@ const mockResponsibleFunds: Fund[] = [
         ],
       },
       profile: {
-        objective: 'Responsible Growth Fund aims to invest in socially responsible assets.',
+        objective: 'Responsible Fund 1 aims to invest in socially responsible assets.',
       },
-    },
-    documents: [
-      {
-        id: 511596587,
-        type: "Factsheet",
-        url: "https://doc.morningstar.com/Document/93e682d5c64ed0c3525d037d1b7c7e90.msdoc?key=e33ffc7c69edde8ebee9cc33e90c47cccaca9c6eb3a0f372"
+      documents: [
+        {
+          id: 511596587,
+          type: "Factsheet",
+          url: "https://doc.morningstar.com/Document/93e682d5c64ed0c3525d037d1b7c7e90.msdoc?key=e33ffc7c69edde8ebee9cc33e90c47cccaca9c6eb3a0f372"
+        },
+      ],
+      quote: {
+        name: 'VT AJ Bell Responsible Fund 1',
+        marketCode: 'FUND:RESP1',
+        lastPrice: 1.7,
+        lastPriceDate: new Date('2024-07-01'),
+        ongoingCharge: 0.35,
+        sectorName: 'Responsible Sector',
+        currency: 'GBP',
       },
-    ],
-    quote: {
-      name: 'VT AJ Bell Responsible Growth Fund',
-      marketCode: 'FUND:BN0S2V9',
-      lastPrice: 1.7,
-      lastPriceDate: new Date('2024-07-01'),
-      ongoingCharge: 0.35,
-      sectorName: 'Responsible Sector',
-      currency: 'GBP',
-    },
+    }
   },
 ];
 
