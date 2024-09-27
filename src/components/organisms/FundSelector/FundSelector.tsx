@@ -103,8 +103,8 @@ const FundSelector: React.FC<FundSelectorProps> = ({ strategies }) => {
             key={selectedFund.id}
             initial={{ y: 0, opacity: 1 }}
             animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -5, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.5 }}
           >
               <div className="grid md:grid-cols-12 gap-5 p-4 m-2 shadow-[0 2px 4px rgba(0, 0, 0, 0.1)] rounded-lg px-5 py-2.5 bg-white">
                 <div className="col-span-12  p-4">
