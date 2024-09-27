@@ -7,8 +7,7 @@ const meta: Meta<typeof SsriChart> = {
   component: SsriChart,
   tags: ['autodocs'],
   args: {
-    // children: 'Example',
-    // variant: 'default'
+    SRRI: 5,
   }
 };
 

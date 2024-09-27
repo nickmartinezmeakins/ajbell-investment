@@ -7,9 +7,9 @@ const meta: Meta<typeof StarRating> = {
   component: StarRating,
   tags: ['autodocs'],
   args: {
-    // children: 'Example',
-    // variant: 'default'
-  }
+    analystRating: 4,
+    analystRatingLabel: 'Neutral',
+  },
 };
 
 export default meta;

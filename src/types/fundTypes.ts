@@ -5,7 +5,6 @@ export interface Fund {
     ratings: {
       analystRating: number;
       SRRI: number;
-      analystRatingLabel: string;
     };
     portfolio: {
       asset: {
@@ -16,14 +15,19 @@ export interface Fund {
     profile: {
       objective: string;
     };
-  };
-  quote: {
-    name: string;
-    marketCode: string;
-    lastPrice: number;
-    lastPriceDate: Date;
-    ongoingCharge: number;
-    sectorName: string;
-    currency: string;
+    quote: {
+      name: string;
+      marketCode: string;
+      lastPrice: number;
+      lastPriceDate: Date;
+      ongoingCharge: number;
+      sectorName: string;
+      currency: string;
+    };
+    documents:  {
+      id: number,
+      type: string,
+      url: string,
+    }[],
   };
 }

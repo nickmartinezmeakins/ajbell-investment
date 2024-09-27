@@ -14,10 +14,8 @@ interface HomePageProps {
 }
 
 const HomePage: React.FC<HomePageProps> = ({strategies}) => {
-
   return (
     <Layout>
-      <h1>1. Tell us why you’re investing</h1>
       <FundComponent strategies={strategies} />
     </Layout>
   );

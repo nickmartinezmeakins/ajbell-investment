@@ -7,9 +7,14 @@ const meta: Meta<typeof PieChart> = {
   component: PieChart,
   tags: ['autodocs'],
   args: {
-    // children: 'Example',
-    // variant: 'default'
-  }
+    data: [
+      { label: 'Stock', value: 85.27585 },
+      { label: 'Bond', value: 10.89832 },
+      { label: 'Cash', value: 4.2768 },
+      { label: 'Other', value: 1.48467 },
+      { label: 'Property', value: 0 },
+    ],
+  },
 };
 
 export default meta;
