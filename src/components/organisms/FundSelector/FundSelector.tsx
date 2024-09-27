@@ -52,7 +52,10 @@ const FundSelector: React.FC<FundSelectorProps> = ({ strategies }) => {
             <button
               key={strategy}
               onClick={() => handleStrategyChange(strategy as 'growth' | 'responsible')}
-              className={`px-3 py-2 relative before:content-[''] before:absolute before:h-0.5 before:left-0 before:bottom-[-10px] before:w-full capitalize ${selectedStrategy === strategy ? ' before:bg-blue-600' : 'before:bg-transparent'}`}
+              className={`px-3 py-2 relative capitalize ${selectedStrategy === strategy ? 'before:bg-blue-600' : 'before:bg-transparent'}`}
+              role="radio"
+              aria-checked={selectedStrategy === strategy}
+              aria-label={`Select ${strategy} strategy`}
             >
               {strategy}
             </button>
@@ -139,7 +142,7 @@ const FundSelector: React.FC<FundSelectorProps> = ({ strategies }) => {
 
                   <div className="flex flex-col gap-2">
                   {selectedFund.data.documents?.map((doc) => (
-                      <a href={doc.url} target="_blank" key={doc.id} className="btn btn-secondary">{doc.type}</a>
+                      <a href={doc.url} target="_blank" key={doc.id} aria-label={`Open ${doc.type}`} className="btn btn-secondary">{doc.type}</a>
                     ))}  
                   </div>      
 
