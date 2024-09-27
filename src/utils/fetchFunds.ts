@@ -1,11 +1,10 @@
-// utils/fetchFunds.ts
-
 export interface Fund {
   id: string;
   name: string;
   url: string;
 }
 
+// Fetch data passed in from fetchFunds and parse in to json
 export const fetchFundData = async (fund: Fund) => {
   const response = await fetch(fund.url);
   if (!response.ok) {
@@ -16,6 +15,7 @@ export const fetchFundData = async (fund: Fund) => {
 };
 
 export const fetchFunds = async () => {
+  // Define the URLs for the funds of both categories.
   const urls = {
     growth: [
       { id: 'BYW8RV9', name: 'Cautious', url: `${process.env.API_URL}BYW8RV9.json` },
@@ -28,8 +28,11 @@ export const fetchFunds = async () => {
   };
 
   try {
+    // Use Promise.all to fetch data for all funds
     const growthData = await Promise.all(urls.growth.map(fetchFundData));
     const responsibleData = await Promise.all(urls.responsible.map(fetchFundData));
+
+    // Return an object containing the fetched data for both categories.
     return {
       growth: growthData,
       responsible: responsibleData,
