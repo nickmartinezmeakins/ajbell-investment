@@ -22,7 +22,7 @@ const PieChart: React.FC<PieChartProps> = ({ data }) => {
     ],
   };
 
-  return <Pie data={chartData} />;
+  return <Pie data={chartData} width={"100%"} />;
 }
 
 export default PieChart;
