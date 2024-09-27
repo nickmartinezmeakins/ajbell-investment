@@ -52,7 +52,7 @@ const FundSelector: React.FC<FundSelectorProps> = ({ strategies }) => {
             <button
               key={strategy}
               onClick={() => handleStrategyChange(strategy as 'growth' | 'responsible')}
-              className={`px-3 py-2 relative capitalize ${selectedStrategy === strategy ? 'before:bg-blue-600' : 'before:bg-transparent'}`}
+              className={`px-3 py-2 relative capitalize  before:content-[''] before:absolute before:h-0.5 before:left-0 before:bottom-[-10px] before:w-full  ${selectedStrategy === strategy ? 'before:bg-blue-600' : 'before:bg-transparent'}`}
               role="radio"
               aria-checked={selectedStrategy === strategy}
               aria-label={`Select ${strategy} strategy`}
