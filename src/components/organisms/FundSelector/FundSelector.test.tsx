@@ -1,99 +1,67 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import FundSelector from './FundSelector';
-import { Fund } from '../../../types/fundTypes'; // Ensure the type is correctly imported
+import { Fund } from '../../../types/fundTypes';
+import '@testing-library/jest-dom';
 
-// Mock Data for Funds (same as in Storybook)
-const mockGrowthFunds: Fund[] = [
-  {
-    id: 'fund1',
-    name: 'Growth Fund 1',
-    data: {
-      ratings: {
-        analystRating: 4,
-        SRRI: 5,
-      },
-      portfolio: {
-        asset: [
-          { label: 'Stock', value: 80 },
-          { label: 'Bond', value: 15 },
-          { label: 'Cash', value: 5 },
-        ],
-      },
-      profile: {
-        objective: 'Growth Fund 1 aims to provide capital growth over the long term.',
-      },
-      documents: [
-        {
-          id: 511596587,
-          type: "Factsheet",
-          url: "https://doc.morningstar.com/Document/93e682d5c64ed0c3525d037d1b7c7e90.msdoc?key=e33ffc7c69edde8ebee9cc33e90c47cccaca9c6eb3a0f372"
-        },
-      ],
-      quote: {
-        name: 'VT AJ Bell Growth Fund 1',
-        marketCode: 'FUND:GRW1',
-        lastPrice: 1.5,
-        lastPriceDate: new Date('2024-07-01'),
-        ongoingCharge: 0.25,
-        sectorName: 'Growth Sector',
-        currency: 'GBP',
+jest.mock('../../molecules/FundContent', () => {
+  return function MockFundContent({ selectedFund }: { selectedFund: Fund }) {
+    return <div data-testid="fund-content">{selectedFund.name}</div>;
+  };
+});
+
+const mockStrategies = {
+  growth: [
+    {
+      id: 'fund1',
+      name: 'Growth Fund 1',
+      description: 'Growth fund description',
+      data: {
+        ratings: { analystRating: 4.5, SRRI: 3 },
+        portfolio: { asset: [{ label: 'Stocks', value: 80 }] },
+        profile: { objective: 'Long-term growth' },
       },
     },
-  },
-];
-
-const mockResponsibleFunds: Fund[] = [
-  {
-    id: 'fund2',
-    name: 'Responsible Fund 1',
-    data: {
-      ratings: {
-        analystRating: 5,
-        SRRI: 3,
-      },
-      portfolio: {
-        asset: [
-          { label: 'Stock', value: 70 },
-          { label: 'Bond', value: 20 },
-          { label: 'Cash', value: 10 },
-        ],
-      },
-      profile: {
-        objective: 'Responsible Fund 1 aims to invest in socially responsible assets.',
-      },
-      documents: [
-        {
-          id: 511596587,
-          type: "Factsheet",
-          url: "https://doc.morningstar.com/Document/93e682d5c64ed0c3525d037d1b7c7e90.msdoc?key=e33ffc7c69edde8ebee9cc33e90c47cccaca9c6eb3a0f372"
-        },
-      ],
-      quote: {
-        name: 'VT AJ Bell Responsible Fund 1',
-        marketCode: 'FUND:RESP1',
-        lastPrice: 1.7,
-        lastPriceDate: new Date('2024-07-01'),
-        ongoingCharge: 0.35,
-        sectorName: 'Responsible Sector',
-        currency: 'GBP',
+    {
+      id: 'fund2',
+      name: 'Growth Fund 2',
+      description: 'Another growth fund description',
+      data: {
+        ratings: { analystRating: 4.0, SRRI: 4 },
+        portfolio: { asset: [{ label: 'Stocks', value: 70 }] },
+        profile: { objective: 'Balanced growth' },
       },
     },
-  },
-];
+  ],
+  responsible: [
+    {
+      id: 'fund3',
+      name: 'Responsible Fund 1',
+      description: 'Responsible fund description',
+      data: {
+        ratings: { analystRating: 4.8, SRRI: 2 },
+        portfolio: { asset: [{ label: 'Green Bonds', value: 60 }] },
+        profile: { objective: 'Sustainable growth' },
+      },
+    },
+  ],
+};
 
-describe('FundSelector', () => {
-  it('should render the heading', () => {
-    render(<FundSelector strategies={{ growth: mockGrowthFunds, responsible: mockResponsibleFunds }} />);
+describe('FundSelector Component', () => {
+  it('should show correct content when handleStrategyChange is clicked', () => {
+    render(<FundSelector strategies={mockStrategies} />);
+    expect(screen.getByTestId('fund-content')).toHaveTextContent('Growth Fund 1');
 
-    // Assert
-    expect(screen.getByRole('heading', { name: /FundSelector/i })).toBeInTheDocument();
+    fireEvent.click(screen.getByTestId('select-strategy-responsible'));
+    expect(screen.getByTestId('fund-content')).toHaveTextContent('Responsible Fund 1');
   });
 
-  it('should display both growth and responsible funds', () => {
-    render(<FundSelector strategies={{ growth: mockGrowthFunds, responsible: mockResponsibleFunds }} />);
+  it('should show correct content when handleFundChange is selected', () => {
+    render(<FundSelector strategies={mockStrategies} />);
 
-    // Assert that growth and responsible fund names are rendered
-    expect(screen.getByText(/Growth Fund 1/i)).toBeInTheDocument();
-    expect(screen.getByText(/Responsible Fund 1/i)).toBeInTheDocument();
+    fireEvent.click(screen.getByTestId('select-fund-fund2'));
+    expect(screen.getByTestId('fund-content')).toHaveTextContent('Growth Fund 2');
+
+    fireEvent.click(screen.getByTestId('select-strategy-responsible'));
+    expect(screen.getByTestId('fund-content')).toHaveTextContent('Responsible Fund 1');
   });
 });

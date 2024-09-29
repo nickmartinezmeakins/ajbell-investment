@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FundSelector from './FundSelector';
-import { Fund } from '../../../types/fundTypes'; // Import your Fund type
+import { Fund } from '../../../types/fundTypes';
 
-// Mock Data for Funds
 const mockGrowthFunds: Fund[] = [
   {
     id: 'fund1',

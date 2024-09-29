@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "preserve", // for React 17+
+    "jsx": "react-jsx",
     "lib": [
       "dom",
       "dom.iterable",

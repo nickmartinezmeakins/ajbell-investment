@@ -1,15 +1,36 @@
 import { render, screen } from '@testing-library/react';
-import SsriChart from './SsriChart'; // Adjust the import if necessary
+import SsriChart from './SsriChart';
 
 describe('SsriChart', () => {
-  it('should render the SRRI chart', () => {
-    // Mock SRRI value
-    const mockSRRI = 5;
+  it('should render the correct risk level based on SRRI prop', () => {
+    render(<SsriChart SRRI={5} />);
+    
+    expect(screen.getByText('Risk Level: 5 / 10')).toBeInTheDocument();
+  });
 
-    // Render the component with the mock SRRI value
-    render(<SsriChart SRRI={mockSRRI} />);
+  it('should render the correct number of bars', () => {
+    render(<SsriChart SRRI={5} />);
 
-    // Assert that the component renders
-    expect(screen.getByTestId('ssri-chart')).toBeInTheDocument(); // Adjust the query based on your component's structure
+    const bars = screen.getAllByRole('presentation');
+    expect(bars.length).toBe(10);
+  });
+
+  it('should highlight the correct bar based on SRRI prop', () => {
+    render(<SsriChart SRRI={5} />);
+
+    const highlightedBar = screen.getByTestId('highlighted-bar');
+    expect(highlightedBar).toHaveClass('bg-red');
+  });
+
+  it('should render the descriptive paragraphs', () => {
+    render(<SsriChart SRRI={5} />);
+    
+    expect(
+      screen.getByText(/The risk rating of a fund depends on the type of assets it invests in/i)
+    ).toBeInTheDocument();
+    
+    expect(
+      screen.getByText(/Keep in mind this applies over the longer term: five years or more/i)
+    ).toBeInTheDocument();
   });
 });
