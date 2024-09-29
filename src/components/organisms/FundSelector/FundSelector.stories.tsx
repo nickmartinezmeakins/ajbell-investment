@@ -80,7 +80,6 @@ const mockResponsibleFunds: Fund[] = [
   },
 ];
 
-// Storybook Meta and Default Story
 const meta: Meta<typeof FundSelector> = {
   title: 'Organisms/FundSelector',
   component: FundSelector,

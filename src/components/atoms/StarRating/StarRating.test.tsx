@@ -18,7 +18,6 @@ describe('StarRating', () => {
   });
 
   it('should render "No rating" when totalStars is less than or equal to 1', () => {        
-    // Mock the totalStars check by modifying the component or test code
     render(<StarRating analystRating={0} />);
     
     expect(screen.getByText('No rating')).toBeInTheDocument();

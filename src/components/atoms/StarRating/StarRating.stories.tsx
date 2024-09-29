@@ -31,10 +31,9 @@ export const Default: Story = {
   },
 };
 
-// New Story for the "No Rating" scenario
 export const NoRating: Story = {
   args: {
-    analystRating: 0, // This will trigger the "No rating" message
+    analystRating: 0,
   },
   play: async () => {
     expect(screen.getByText('No rating')).toBeInTheDocument();

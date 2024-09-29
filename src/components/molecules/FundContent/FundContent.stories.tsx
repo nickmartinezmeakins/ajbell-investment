@@ -53,5 +53,4 @@ export default meta;
 
 type Story = StoryObj<typeof FundContent>;
 
-// Default story with the mock data
 export const Default: Story = {};
