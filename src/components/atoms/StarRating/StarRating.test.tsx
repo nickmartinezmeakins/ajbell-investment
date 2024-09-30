@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import StarRating from './StarRating';
+import '@testing-library/jest-dom';
 
 describe('StarRating', () => {
   it('should render the heading', () => {

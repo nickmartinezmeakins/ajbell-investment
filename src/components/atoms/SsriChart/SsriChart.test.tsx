@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import SsriChart from './SsriChart';
+import '@testing-library/jest-dom';
 
 describe('SsriChart', () => {
   it('should render the correct risk level based on SRRI prop', () => {

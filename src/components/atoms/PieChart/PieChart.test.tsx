@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import PieChart from './PieChart';
+import '@testing-library/jest-dom';
 
 describe('PieChart', () => {
   const mockData = [

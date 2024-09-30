@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import FundContent from './FundContent';
 import { Fund } from '../../../types/fundTypes';
+import '@testing-library/jest-dom';
 
 // Mock Data for selectedFund
 const mockSelectedFund: Fund = {
