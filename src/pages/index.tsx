@@ -2,6 +2,8 @@ import Layout from '../app/layout';
 import FundSelector from '../components/organisms/FundSelector';
 import { Fund } from '../types/fundTypes';
 import { fetchFunds } from '../utils/fetchFunds';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+
 
 interface StrategyData {
   growth: Fund[];
@@ -21,7 +23,7 @@ const HomePage: React.FC<HomePageProps> = ({ strategies }) => {
 };
 
 // Use the helper in getServerSideProps to get data
-export const getServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
     const strategies = await fetchFunds();
 
     // Set Cache-Control headers for caching

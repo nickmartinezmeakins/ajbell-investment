@@ -2,8 +2,13 @@ import  PieChart  from '../../atoms/PieChart';
 import StarRating from '../../atoms/StarRating';
 import SsriChart from '../../atoms/SsriChart';
 import { motion, AnimatePresence } from "framer-motion";
+import { Fund } from '../../../types/fundTypes'; 
 
-export const FundContent = ({selectedFund}) => {
+interface FundContentProps {
+  selectedFund: Fund;
+}
+
+export const FundContent = ({ selectedFund }: FundContentProps) => {
   //Set local storage to selected fund.
   const setSelectedFundID = (fundId: string) => {
     localStorage.setItem("selectedFund", fundId);
